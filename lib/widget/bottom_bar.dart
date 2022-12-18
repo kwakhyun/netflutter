@@ -7,6 +7,9 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
+      padding: EdgeInsets.only(
+        top: 5,
+      ),
       child: const SizedBox(
         height: 50,
         child: TabBar(
@@ -26,17 +29,17 @@ class BottomBar extends StatelessWidget {
             ),
             Tab(
               icon: Icon(
-                Icons.search,
+                Icons.favorite,
                 size: 18,
               ),
               child: Text(
-                '검색',
+                '찜한 콘텐츠',
                 style: TextStyle(fontSize: 9),
               ),
             ),
             Tab(
               icon: Icon(
-                Icons.save,
+                Icons.download,
                 size: 18,
               ),
               child: Text(
@@ -46,11 +49,11 @@ class BottomBar extends StatelessWidget {
             ),
             Tab(
               icon: Icon(
-                Icons.list,
+                Icons.person,
                 size: 18,
               ),
               child: Text(
-                '더 보기',
+                '프로필',
                 style: TextStyle(fontSize: 9),
               ),
             ),
