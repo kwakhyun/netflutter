@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflutter/model/model_movie.dart';
+import 'package:netflutter/screen/detail_screen.dart';
 
 class SquareSlider extends StatelessWidget {
   final List<Movie> movies;
@@ -17,7 +18,7 @@ class SquareSlider extends StatelessWidget {
             height: 120,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: makeSquareImages(movies),
+              children: makeSquareImages(movies, context),
             ),
           )
         ],
@@ -26,12 +27,21 @@ class SquareSlider extends StatelessWidget {
   }
 }
 
-List<Widget> makeSquareImages(List<Movie> movies) {
+List<Widget> makeSquareImages(List<Movie> movies, BuildContext context) {
   List<Widget> results = [];
   for (int i = 0; i < movies.length; i++) {
     results.add(
       InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) {
+              return DetailScreen(
+                movie: movies[i],
+              );
+            },
+            fullscreenDialog: true,
+          ));
+        },
         child: Container(
           padding: EdgeInsets.only(right: 10),
           child: Align(
