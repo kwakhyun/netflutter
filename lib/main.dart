@@ -34,12 +34,12 @@ class _MyAppState extends State<MyApp> {
               HomeScreen(),
               Container(
                 child: const Center(
-                  child: Text("search"),
+                  child: Text("찜한 콘텐츠"),
                 ),
               ),
               Container(
                 child: const Center(
-                  child: Text("save"),
+                  child: Text("저장한 콘텐츠"),
                 ),
               ),
               ProfileScreen(),
