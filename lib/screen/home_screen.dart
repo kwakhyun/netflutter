@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflutter/model/model_movie.dart';
 import 'package:netflutter/widget/carousel_slider.dart';
+import 'package:netflutter/widget/circle_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -42,8 +43,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        TopBar(),
-        CarouselImage(movies: movies),
+        Stack(
+          children: [
+            CarouselImage(movies: movies),
+            TopBar(),
+          ],
+        ),
+        CircleSlider(
+          movies: movies,
+        ),
       ],
     );
   }
