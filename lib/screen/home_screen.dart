@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:netflutter/model/model_movie.dart';
 import 'package:netflutter/widget/carousel_slider.dart';
@@ -9,39 +10,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Movie> movies = [
-    Movie.fromMap({
-      'title': '아바타: 물의 길',
-      'keyword': '액션/스릴러/판타지',
-      'poster': 'avatar_poster.jpeg',
-      'like': false
-    }),
-    Movie.fromMap({
-      'title': '아바타: 물의 길',
-      'keyword': '액션/스릴러/판타지',
-      'poster': 'avatar_poster.jpeg',
-      'like': false
-    }),
-    Movie.fromMap({
-      'title': '아바타: 물의 길',
-      'keyword': '액션/스릴러/판타지',
-      'poster': 'avatar_poster.jpeg',
-      'like': false
-    }),
-    Movie.fromMap({
-      'title': '아바타: 물의 길',
-      'keyword': '액션/스릴러/판타지',
-      'poster': 'avatar_poster.jpeg',
-      'like': false
-    })
-  ];
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  late Stream<QuerySnapshot> streamData;
+
   @override
   void initState() {
     super.initState();
+    streamData = firestore.collection('movie').snapshots();
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _fetchData(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection('movie').snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return LinearProgressIndicator();
+        return _buildBody(context, snapshot.data!.docs);
+      },
+    );
+  }
+
+  Widget _buildBody(BuildContext context, List<DocumentSnapshot> snapshot) {
+    List<Movie> movies =
+        snapshot.map((data) => Movie.fromSnapshot(data)).toList();
     return ListView(
       children: <Widget>[
         Stack(
@@ -54,6 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
         SquareSlider(movies: movies)
       ],
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _fetchData(context);
   }
 }
 

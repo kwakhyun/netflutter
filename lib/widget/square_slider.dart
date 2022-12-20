@@ -48,7 +48,7 @@ List<Widget> makeSquareImages(List<Movie> movies, BuildContext context) {
             alignment: Alignment.centerLeft,
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Image.asset('images/' + movies[i].poster),
+              child: Image.network(movies[i].poster),
             ),
           ),
         ),

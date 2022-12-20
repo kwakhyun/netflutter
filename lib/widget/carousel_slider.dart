@@ -22,8 +22,7 @@ class _CarouselImageState extends State<CarouselImage> {
   void initState() {
     super.initState();
     movies = widget.movies;
-    images =
-        movies.map((movie) => Image.asset('./images/' + movie.poster)).toList();
+    images = movies.map((movie) => Image.network(movie.poster)).toList();
     keywords = movies.map((movie) => movie.keyword).toList();
     likes = movies.map((movie) => movie.like).toList();
     _currentKeyword = keywords[0];
@@ -62,8 +61,25 @@ class _CarouselImageState extends State<CarouselImage> {
                     children: <Widget>[
                       likes[_currentPage]
                           ? IconButton(
-                              onPressed: () {}, icon: Icon(Icons.check))
-                          : IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                              onPressed: () {
+                                setState(() {
+                                  likes[_currentPage] = false;
+                                  movies[_currentPage]
+                                      .reference
+                                      .update({'like': likes[_currentPage]});
+                                });
+                              },
+                              icon: Icon(Icons.check))
+                          : IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  likes[_currentPage] = true;
+                                  movies[_currentPage]
+                                      .reference
+                                      .update({'like': likes[_currentPage]});
+                                });
+                              },
+                              icon: Icon(Icons.add)),
                       Text(
                         '찜한 콘텐츠',
                         style: TextStyle(fontSize: 11),
