@@ -29,11 +29,11 @@ class BottomBar extends StatelessWidget {
             ),
             Tab(
               icon: Icon(
-                Icons.favorite,
+                Icons.search,
                 size: 18,
               ),
               child: Text(
-                '찜한 콘텐츠',
+                '검색',
                 style: TextStyle(fontSize: 9),
               ),
             ),
