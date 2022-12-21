@@ -34,7 +34,7 @@ class _CarouselImageState extends State<CarouselImage> {
       child: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
           ),
           CarouselSlider(
             items: images,
@@ -46,10 +46,10 @@ class _CarouselImageState extends State<CarouselImage> {
             }),
           ),
           Container(
-            padding: EdgeInsets.fromLTRB(0, 10, 0, 3),
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 3),
             child: Text(
               _currentKeyword,
-              style: TextStyle(fontSize: 11),
+              style: const TextStyle(fontSize: 11),
             ),
           ),
           Container(
@@ -69,7 +69,7 @@ class _CarouselImageState extends State<CarouselImage> {
                                       .update({'like': likes[_currentPage]});
                                 });
                               },
-                              icon: Icon(Icons.check))
+                              icon: const Icon(Icons.check))
                           : IconButton(
                               onPressed: () {
                                 setState(() {
@@ -79,8 +79,8 @@ class _CarouselImageState extends State<CarouselImage> {
                                       .update({'like': likes[_currentPage]});
                                 });
                               },
-                              icon: Icon(Icons.add)),
-                      Text(
+                              icon: const Icon(Icons.add)),
+                      const Text(
                         '찜한 콘텐츠',
                         style: TextStyle(fontSize: 11),
                       )
@@ -88,30 +88,32 @@ class _CarouselImageState extends State<CarouselImage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(right: 10),
                   child: TextButton(
-                    style: TextButton.styleFrom(backgroundColor: Colors.white),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue[200],
+                      padding: const EdgeInsets.only(left: 10, right: 15),
+                    ),
                     onPressed: () {},
                     child: Row(
-                      children: <Widget>[
+                      children: const <Widget>[
                         Icon(
                           Icons.play_arrow,
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                         Padding(padding: EdgeInsets.all(3)),
                         Text(
                           '재생',
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.white),
                         ),
                       ],
                     ),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 10),
                   child: Column(children: <Widget>[
                     IconButton(
-                      icon: Icon(Icons.info),
+                      icon: const Icon(Icons.info),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) {
@@ -123,7 +125,7 @@ class _CarouselImageState extends State<CarouselImage> {
                         ));
                       },
                     ),
-                    Text(
+                    const Text(
                       '정보',
                       style: TextStyle(fontSize: 11),
                     )
@@ -149,12 +151,12 @@ List<Widget> makeIndicator(List list, int _currentPage) {
     results.add(Container(
       width: 8,
       height: 8,
-      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: _currentPage == i
-            ? Color.fromRGBO(255, 255, 255, 0.9)
-            : Color.fromRGBO(255, 255, 255, 0.4),
+            ? const Color.fromRGBO(255, 255, 255, 0.9)
+            : const Color.fromRGBO(255, 255, 255, 0.4),
       ),
     ));
   }

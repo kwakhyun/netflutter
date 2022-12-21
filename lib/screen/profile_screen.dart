@@ -10,6 +10,7 @@ class ProfileScreen extends StatelessWidget {
     return Center(
       child: Column(
         children: <Widget>[
+          Padding(padding: const EdgeInsets.all(30)),
           Container(
             padding: const EdgeInsets.only(top: 50),
             child: const CircleAvatar(
@@ -24,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),
@@ -32,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             width: 160,
             height: 5,
-            color: const Color.fromARGB(255, 54, 244, 231),
+            color: Colors.blue,
           ),
           Container(
             padding: const EdgeInsets.all(10),
@@ -43,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
                 fontSize: 18,
               ),
               linkStyle: const TextStyle(
-                color: Colors.white,
+                color: Colors.grey,
               ),
               onOpen: (link) async {
                 if (await canLaunch(link.url)) {
@@ -58,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
               onPressed: () {},
               child: Container(
                 padding: const EdgeInsets.all(10),
-                color: Colors.black26,
+                color: Colors.blue,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const <Widget>[

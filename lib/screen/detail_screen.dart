@@ -42,39 +42,78 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Container(
                             child: Column(children: <Widget>[
                               Container(
-                                padding: EdgeInsets.fromLTRB(0, 45, 0, 10),
-                                child: Image.network(widget.movie.poster),
+                                padding:
+                                    const EdgeInsets.fromLTRB(0, 45, 0, 10),
                                 height: 300,
+                                child: Image.network(widget.movie.poster),
                               ),
                               Container(
-                                padding: EdgeInsets.all(7),
+                                padding: const EdgeInsets.all(7),
                                 child: Text(
                                   widget.movie.title,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 16,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.all(7),
+                                padding:
+                                    const EdgeInsets.fromLTRB(0, 10, 0, 20),
                                 child: Text(
-                                  '2022 인기 영화',
+                                  widget.movie.keyword,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 13),
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white.withOpacity(0.7)),
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.all(3),
+                                padding: const EdgeInsets.all(7),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text(
+                                          widget.movie.opening_date,
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.white
+                                                  .withOpacity(0.7)),
+                                        ),
+                                        Text(
+                                          "${widget.movie.age}세 이상 관람가",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.white
+                                                  .withOpacity(0.7)),
+                                        ),
+                                        Text(
+                                          widget.movie.running_time,
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.white
+                                                  .withOpacity(0.7)),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(20),
                                 child: TextButton(
                                   style: TextButton.styleFrom(
-                                      backgroundColor: Colors.white),
+                                      backgroundColor: Colors.white60),
                                   onPressed: () {},
                                   child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Icon(
                                           Icons.play_arrow,
                                           color: Colors.black,
@@ -89,16 +128,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.all(5),
-                                child: Text(widget.movie.toString()),
-                              ),
-                              Container(
-                                padding: EdgeInsets.fromLTRB(5, 5, 5, 15),
+                                padding:
+                                    const EdgeInsets.fromLTRB(20, 0, 20, 40),
                                 child: Text(
-                                  '주연: 샘 워딩턴, 조 샐다나, 시고니 위버, 스티븐 랭, 케이트 윈슬렛\n출연: 감독: 제임스 카메론',
-                                  style: TextStyle(
+                                  widget.movie.desc,
+                                  style: const TextStyle(
                                     color: Colors.white60,
-                                    fontSize: 12,
+                                    fontSize: 16,
                                   ),
                                 ),
                               ),
@@ -116,12 +152,12 @@ class _DetailScreenState extends State<DetailScreen> {
                 ],
               ),
               Container(
-                color: Colors.black26,
+                color: Colors.blueGrey,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                       child: InkWell(
                         onTap: () {
                           setState(() {
@@ -130,14 +166,16 @@ class _DetailScreenState extends State<DetailScreen> {
                           });
                         },
                         child: Column(children: <Widget>[
-                          like ? Icon(Icons.check) : Icon(Icons.add),
-                          Padding(
+                          like
+                              ? const Icon(Icons.check, color: Colors.white)
+                              : const Icon(Icons.add, color: Colors.white),
+                          const Padding(
                             padding: EdgeInsets.all(5),
                           ),
-                          Text(
+                          const Text(
                             '찜',
                             style: TextStyle(
-                              color: Colors.white60,
+                              color: Colors.white,
                               fontSize: 11,
                             ),
                           )
@@ -145,18 +183,21 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                       child: Container(
                         child: Column(
-                          children: <Widget>[
-                            Icon(Icons.thumb_up),
+                          children: const <Widget>[
+                            Icon(
+                              Icons.thumb_up,
+                              color: Colors.white,
+                            ),
                             Padding(
                               padding: EdgeInsets.all(5),
                             ),
                             Text(
                               '평가',
                               style: TextStyle(
-                                color: Colors.white60,
+                                color: Colors.white,
                                 fontSize: 11,
                               ),
                             )
@@ -165,17 +206,20 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                       child: Container(
-                        child: Column(children: <Widget>[
-                          Icon(Icons.share),
+                        child: Column(children: const <Widget>[
+                          Icon(
+                            Icons.share,
+                            color: Colors.white,
+                          ),
                           Padding(
                             padding: EdgeInsets.all(5),
                           ),
                           Text(
                             '공유',
                             style: TextStyle(
-                              color: Colors.white60,
+                              color: Colors.white,
                               fontSize: 11,
                             ),
                           )

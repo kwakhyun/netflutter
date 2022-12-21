@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflutter/screen/home_screen.dart';
 import 'package:netflutter/screen/profile_screen.dart';
+import 'package:netflutter/screen/search_screen.dart';
 import 'package:netflutter/widget/bottom_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'NetFlutter',
       theme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
         primaryColor: Colors.black,
         accentColor: Colors.white,
       ),
@@ -38,11 +39,7 @@ class _MyAppState extends State<MyApp> {
             physics: const NeverScrollableScrollPhysics(),
             children: <Widget>[
               HomeScreen(),
-              Container(
-                child: const Center(
-                  child: Text("찜한 콘텐츠"),
-                ),
-              ),
+              SearchScreen(),
               Container(
                 child: const Center(
                   child: Text("저장한 콘텐츠"),
