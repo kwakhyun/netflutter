@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflutter/screen/home_screen.dart';
+import 'package:netflutter/screen/like_screen.dart';
 import 'package:netflutter/screen/profile_screen.dart';
 import 'package:netflutter/screen/search_screen.dart';
 import 'package:netflutter/widget/bottom_bar.dart';
@@ -40,11 +41,7 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               HomeScreen(),
               SearchScreen(),
-              Container(
-                child: const Center(
-                  child: Text("저장한 콘텐츠"),
-                ),
-              ),
+              LikeScreen(),
               ProfileScreen(),
             ],
           ),

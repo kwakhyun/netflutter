@@ -11,7 +11,7 @@ class BottomBar extends StatelessWidget {
         top: 5,
       ),
       child: const SizedBox(
-        height: 50,
+        height: 70,
         child: TabBar(
           labelColor: Colors.white,
           unselectedLabelColor: Colors.white60,
@@ -20,7 +20,7 @@ class BottomBar extends StatelessWidget {
             Tab(
               icon: Icon(
                 Icons.home,
-                size: 18,
+                size: 24,
               ),
               child: Text(
                 '홈',
@@ -30,7 +30,7 @@ class BottomBar extends StatelessWidget {
             Tab(
               icon: Icon(
                 Icons.search,
-                size: 18,
+                size: 24,
               ),
               child: Text(
                 '검색',
@@ -39,18 +39,18 @@ class BottomBar extends StatelessWidget {
             ),
             Tab(
               icon: Icon(
-                Icons.download,
-                size: 18,
+                Icons.favorite,
+                size: 24,
               ),
               child: Text(
-                '저장한 콘텐츠',
+                '찜한 콘텐츠',
                 style: TextStyle(fontSize: 9),
               ),
             ),
             Tab(
               icon: Icon(
                 Icons.person,
-                size: 18,
+                size: 24,
               ),
               child: Text(
                 '프로필',
