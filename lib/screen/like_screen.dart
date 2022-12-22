@@ -4,6 +4,8 @@ import 'package:netflutter/model/model_movie.dart';
 import 'package:netflutter/screen/detail_screen.dart';
 
 class LikeScreen extends StatefulWidget {
+  const LikeScreen({super.key});
+
   @override
   _LikeScreenState createState() => _LikeScreenState();
 }
@@ -16,7 +18,7 @@ class _LikeScreenState extends State<LikeScreen> {
           .where('like', isEqualTo: true)
           .snapshots(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) return LinearProgressIndicator();
+        if (!snapshot.hasData) return const LinearProgressIndicator();
         return _buildList(context, snapshot.data!.docs);
       },
     );
@@ -27,7 +29,7 @@ class _LikeScreenState extends State<LikeScreen> {
       child: GridView.count(
         crossAxisCount: 3,
         childAspectRatio: 1 / 1.5,
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         children:
             snapshot.map((data) => _buildListItem(context, data)).toList(),
       ),
@@ -54,8 +56,9 @@ class _LikeScreenState extends State<LikeScreen> {
     return Container(
       child: Column(
         children: <Widget>[
+          const Padding(padding: EdgeInsets.only(top: 30)),
           Container(
-            padding: EdgeInsets.fromLTRB(20, 27, 20, 7),
+            padding: const EdgeInsets.fromLTRB(20, 27, 20, 7),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -65,8 +68,8 @@ class _LikeScreenState extends State<LikeScreen> {
                   height: 25,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 30),
-                  child: Text(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: const Text(
                     '내가 찜한 콘텐츠',
                     style: TextStyle(
                       fontSize: 14,
