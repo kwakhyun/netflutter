@@ -1,16 +1,23 @@
-# netflutter
+## Netflutter
 
-A new Flutter project.
+### Description
 
-## Getting Started
+- 넷플릭스 UI를 모방한 Flutter 앱입니다.
+<br>
 
-This project is a starting point for a Flutter application.
+### Features
 
-A few resources to get you started if this is your first Flutter project:
+- 영화, TV 프로그램, 내가 찜한 콘텐츠, 검색 페이지 구현
+- 영화, TV 프로그램 상세 페이지 구현
+<br>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Home|Detail
+:-|:-
+1|2
+Search|Like
+3|4
+Profile|
+5|
+<br>
