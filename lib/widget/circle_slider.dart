@@ -4,7 +4,7 @@ import 'package:netflutter/screen/detail_screen.dart';
 
 class CircleSlider extends StatelessWidget {
   final List<Movie> movies;
-  CircleSlider({required this.movies});
+  const CircleSlider({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class CircleSlider extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('미리보기'),
+          const Text('미리보기'),
           Container(
             height: 120,
             child: ListView(
@@ -42,7 +42,7 @@ List<Widget> makeCircleImages(List<Movie> movies, BuildContext context) {
           ));
         },
         child: Container(
-          padding: EdgeInsets.only(right: 10),
+          padding: const EdgeInsets.only(right: 10),
           child: Align(
             alignment: Alignment.centerLeft,
             child: CircleAvatar(

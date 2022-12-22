@@ -5,7 +5,9 @@ import 'package:netflutter/screen/detail_screen.dart';
 
 class CarouselImage extends StatefulWidget {
   final List<Movie> movies;
-  CarouselImage({required this.movies});
+  const CarouselImage({super.key, required this.movies});
+
+  @override
   _CarouselImageState createState() => _CarouselImageState();
 }
 

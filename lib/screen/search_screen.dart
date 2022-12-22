@@ -4,6 +4,8 @@ import 'package:netflutter/model/model_movie.dart';
 import 'package:netflutter/screen/detail_screen.dart';
 
 class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
+
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }

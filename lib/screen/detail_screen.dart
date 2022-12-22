@@ -4,7 +4,9 @@ import 'package:netflutter/model/model_movie.dart';
 
 class DetailScreen extends StatefulWidget {
   final Movie movie;
-  DetailScreen({required this.movie});
+  const DetailScreen({super.key, required this.movie});
+
+  @override
   _DetailScreenState createState() => _DetailScreenState();
 }
 

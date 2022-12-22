@@ -6,6 +6,9 @@ import 'package:netflutter/widget/circle_slider.dart';
 import 'package:netflutter/widget/square_slider.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
@@ -23,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance.collection('movie').snapshots(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) return LinearProgressIndicator();
+        if (!snapshot.hasData) return const LinearProgressIndicator();
         return _buildBody(context, snapshot.data!.docs);
       },
     );
@@ -53,10 +56,12 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class TopBar extends StatelessWidget {
+  const TopBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(20, 7, 20, 7),
+      padding: const EdgeInsets.fromLTRB(20, 7, 20, 7),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -66,22 +71,22 @@ class TopBar extends StatelessWidget {
             height: 25,
           ),
           Container(
-            padding: EdgeInsets.only(right: 1),
-            child: Text(
+            padding: const EdgeInsets.only(right: 1),
+            child: const Text(
               '시리즈',
               style: TextStyle(fontSize: 14),
             ),
           ),
           Container(
-            padding: EdgeInsets.only(right: 1),
-            child: Text(
+            padding: const EdgeInsets.only(right: 1),
+            child: const Text(
               '영화',
               style: TextStyle(fontSize: 14),
             ),
           ),
           Container(
-            padding: EdgeInsets.only(right: 1),
-            child: Text(
+            padding: const EdgeInsets.only(right: 1),
+            child: const Text(
               '카테고리',
               style: TextStyle(fontSize: 14),
             ),

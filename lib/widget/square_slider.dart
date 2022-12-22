@@ -4,16 +4,16 @@ import 'package:netflutter/screen/detail_screen.dart';
 
 class SquareSlider extends StatelessWidget {
   final List<Movie> movies;
-  SquareSlider({required this.movies});
+  const SquareSlider({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(7),
+      padding: const EdgeInsets.all(7),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('인기 콘텐츠'),
+          const Text('인기 콘텐츠'),
           Container(
             height: 120,
             child: ListView(
@@ -43,7 +43,7 @@ List<Widget> makeSquareImages(List<Movie> movies, BuildContext context) {
           ));
         },
         child: Container(
-          padding: EdgeInsets.only(right: 10),
+          padding: const EdgeInsets.only(right: 10),
           child: Align(
             alignment: Alignment.centerLeft,
             child: Align(

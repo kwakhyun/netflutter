@@ -7,7 +7,7 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 5,
       ),
       child: const SizedBox(

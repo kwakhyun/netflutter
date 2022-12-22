@@ -33,11 +33,11 @@ class _MyAppState extends State<MyApp> {
         primaryColor: Colors.black,
         accentColor: Colors.white,
       ),
-      home: DefaultTabController(
+      home: const DefaultTabController(
         length: 4,
         child: Scaffold(
           body: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
               HomeScreen(),
               SearchScreen(),
@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
               ProfileScreen(),
             ],
           ),
-          bottomNavigationBar: const BottomBar(),
+          bottomNavigationBar: BottomBar(),
         ),
       ),
     );

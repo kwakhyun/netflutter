@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
     return Center(
       child: Column(
         children: <Widget>[
-          Padding(padding: const EdgeInsets.all(30)),
+          const Padding(padding: EdgeInsets.all(30)),
           Container(
             padding: const EdgeInsets.only(top: 50),
             child: const CircleAvatar(
