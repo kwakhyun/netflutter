@@ -4,6 +4,7 @@ import 'package:netflutter/model/model_movie.dart';
 import 'package:netflutter/screen/detail_screen.dart';
 
 class SearchScreen extends StatefulWidget {
+  @override
   _SearchScreenState createState() => _SearchScreenState();
 }
 
@@ -14,19 +15,13 @@ class _SearchScreenState extends State<SearchScreen> {
 
   _SearchScreenState() {
     _filter.addListener(() {
-      if (_filter.text.isEmpty) {
-        setState(() {
-          _searchText = "";
-        });
-      } else {
-        setState(() {
-          _searchText = _filter.text;
-        });
-      }
+      setState(() {
+        _searchText = _filter.text;
+      });
     });
   }
 
-  Widget _buildBody(BuildContext buildContext) {
+  Widget _buildBody(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance.collection('movie').snapshots(),
       builder: (context, snapshot) {
@@ -36,12 +31,11 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _buildList(
-      BuildContext context, List<QueryDocumentSnapshot<Object?>> docs) {
-    List<QueryDocumentSnapshot<Object?>> searchResults = [];
-    for (QueryDocumentSnapshot<Object?> doc in docs) {
-      if (doc.data.toString().contains(_searchText)) {
-        searchResults.add(doc);
+  Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
+    List<DocumentSnapshot> searchResults = [];
+    for (int i = 0; i < snapshot.length; i++) {
+      if (snapshot[i]['title'].toString().contains(_searchText)) {
+        searchResults.add(snapshot[i]);
       }
     }
     return Expanded(
@@ -55,15 +49,14 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _buildListItem(
-      BuildContext context, QueryDocumentSnapshot<Object?> data) {
+  Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
     final movie = Movie.fromSnapshot(data);
     return InkWell(
       child: Image.network(movie.poster),
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             fullscreenDialog: true,
-            builder: (context) {
+            builder: (BuildContext context) {
               return DetailScreen(movie: movie);
             }));
       },
