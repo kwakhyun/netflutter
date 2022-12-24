@@ -14,7 +14,7 @@
 - 프로필 페이지, 프로필 수정
 <br>
 
-## Screenshots
+### Screenshots
 
 Home|Detail|Search
 :-|:-|:-
@@ -23,6 +23,15 @@ Home|Detail|Search
 <img src="https://user-images.githubusercontent.com/73919235/209059704-22cc739b-3857-446d-96ad-6a13414d9450.png" width="200">|<img src="https://user-images.githubusercontent.com/73919235/209059715-0c9c763c-8655-4129-aff3-01d034fe7acc.png" width="200">|
 <br>
 
+### How to run the project
 
+```bash
+# 개발 환경 진단
+$ flutter doctor
 
+# 의존성 패키지 설치
+$ flutter pub get
 
+# 앱 실행
+$ flutter run
+```
