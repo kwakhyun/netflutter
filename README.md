@@ -2,7 +2,8 @@
 
 ### Description
 
-- 넷플릭스 UI를 모방한 Flutter 앱입니다.
+- 넷플릭스 UI를 모방해서 만든 Flutter 앱입니다.
+- Firebase를 이용해 앱 데이터를 관리했습니다.
 <br>
 
 ### Features
